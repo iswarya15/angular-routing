@@ -1,0 +1,18 @@
+<my-rental-list [rentalList]="rentalList"></my-rental-list>
+<div style="margin:10px">
+  <h5>Filter by rating</h5>
+  <a [routerLink]="['/flops']" [queryParams]="{ starsMax: 3 }"> 3 </a>
+  <a [routerLink]="['/flops']" [queryParams]="{ starsMax: 4 }"> 4 </a>
+  <a [routerLink]="['/flops']" [queryParams]="{ starsMax: 5 }"> 5 </a>
+</div>
+<div style="display:flex; justify-content:space-around; flex-wrap: wrap">
+  <div *ngFor="let flop of flops" class="card bg-dark text-light mb-3">
+    <a [routerLink]="['/flops', flop.id]">
+      <div class="card-body">
+        <img [src]="flop.imageUrl" alt="" />
+
+        <button class="btn btn-success btn-sm" (click)="onClick()">Rent</button>
+      </div>
+    </a>
+  </div>
+</div>
